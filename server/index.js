@@ -4,6 +4,7 @@ const morgan = require("morgan");
 const parser = require("body-parser");
 const axios = require("axios");
 const xml2js = require("xml2js-es6-promise");
+const { getTrains } = require("./helpers");
 const app = express();
 const port = 3000;
 
@@ -25,12 +26,13 @@ app.get("/trains", (req, res) => {
     .get(
       `http://traindata.njtransit.com:8092/njttraindata.asmx/getTrainScheduleJSON?username=${
         process.env.NJUSER
-      }&password=${process.env.NJPASS}&station=NP`
+      }&password=${process.env.NJPASS}&station=NY`
     )
     .then(({ data }) => {
       let string = data.split(">")[2];
       string = string.split("<")[0];
-      res.send(string);
+
+      res.send(getTrains(JSON.parse(string)));
     })
     .catch(e => {
       console.log(e);
