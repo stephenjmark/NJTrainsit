@@ -24,5 +24,5 @@ You can specify a port number by storing it in .env under the label PORT. Otherw
 #### Starting the application
 
 1. Run `npm i`
-2. Run `npm build-dev`
+2. Run `npm build-prod`
 3. Run `npm start`
