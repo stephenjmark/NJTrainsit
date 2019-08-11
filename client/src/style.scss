@@ -1,0 +1,161 @@
+// TEXTS
+@mixin basic-text {
+  font-family: "SF Pro Text", system, -apple-system, BlinkMacSystemFont,
+    ".SFNSDisplay-Regular", "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+}
+
+@mixin title-text {
+  @include basic-text;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.374px;
+  line-height: 20px;
+}
+
+@mixin caption-medium-text {
+  @include basic-text;
+  font-weight: normal;
+  font-size: 12px;
+  letter-spacing: -0.132px;
+  line-height: 14px;
+}
+
+@mixin body-medium-text {
+  @include basic-text;
+  font-size: 14px;
+  letter-spacing: -0.308px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+// COLORS
+
+$blackColor: #2e3247;
+$grayColor: #c0c4cf;
+$darkGrayColor: #9393a3;
+$lightGrayColor: #f9f9fa;
+
+.searchBar {
+  display: flex;
+  flex-flow: row;
+  padding-bottom: 15px;
+  max-height: 20px;
+  min-width: 380px;
+  justify-content: space-evenly;
+}
+
+.searchBar > * {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.origin {
+  max-width: 122px;
+}
+
+.destination {
+  padding-left: -10px !important;
+}
+
+.outer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: $lightGrayColor;
+  padding: 8px;
+}
+
+.container {
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: white;
+  max-width: 580px;
+  border: 1px solid rgba($grayColor, 0.3);
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.resultsContainer {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  width: 90%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  background: white;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding-bottom: 16px;
+  margin: 5px auto;
+  z-index: 0;
+}
+
+.title {
+  @include body-medium-text;
+  padding-bottom: 15px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 0 12px 16px;
+}
+
+.header {
+  @include title-text;
+  color: $blackColor;
+}
+
+.settings {
+  @include caption-medium-text;
+}
+
+.divider {
+  border: 1px solid rgba($grayColor, 0.3);
+}
+
+.card {
+  position: relative;
+  border-radius: 8px;
+  padding: 50px;
+  z-index: 10;
+  background: $lightGrayColor;
+  overflow: hidden;
+
+  flex: 1 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardTitle {
+  @include body-medium-text;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+  padding: 6px 0;
+
+  flex: 1 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.trainTimes > * {
+  list-style-type: none;
+  padding: 0px;
+  padding-bottom: 4px;
+}

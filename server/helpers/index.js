@@ -1,4 +1,10 @@
-module.exports = {
+const shortcodes = require("./shortcodes");
+
+const helpers = {
+  getShortcode: station => {
+    console.log("station:", station);
+    return shortcodes[station];
+  },
   getTrains: (data, destination) => {
     let trains = data["STATION"]["ITEMS"]["ITEM"];
     let result = [];
@@ -13,8 +19,8 @@ module.exports = {
       //find which trains stop at desired destination
       for (let j = 0; j < stops.length; j++) {
         let stop = stops[j];
-        let name = stop["NAME"];
-        if (name === "Newark Penn Station") {
+        let name = stop["NAME"].toUpperCase();
+        if (name === destination) {
           result.push({
             depart: train["SCHED_DEP_DATE"],
             arrive: stop["TIME"]
@@ -30,3 +36,5 @@ module.exports = {
     return result;
   }
 };
+
+module.exports = helpers;

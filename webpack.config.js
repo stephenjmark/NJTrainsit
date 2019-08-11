@@ -13,11 +13,24 @@ const config = {
         test: /\.(js|jsx)$/,
         use: "babel-loader",
         exclude: /node_modules/
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        loader: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true
+            }
+          },
+          "sass-loader"
+        ]
       }
     ]
   },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: [".js", ".jsx", ".sass", ".scss"]
   },
   devServer: {
     contentBase: "./dist"

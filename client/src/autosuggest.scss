@@ -1,0 +1,57 @@
+// TEXTS
+@mixin basic-text {
+  font-family: "SF Pro Text", system, -apple-system, BlinkMacSystemFont,
+    ".SFNSDisplay-Regular", "Segoe UI", SegoeUI, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+}
+
+@mixin title-text {
+  @include basic-text;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.374px;
+  line-height: 20px;
+}
+
+@mixin caption-medium-text {
+  @include basic-text;
+  font-weight: normal;
+  font-size: 12px;
+  letter-spacing: -0.132px;
+  line-height: 14px;
+}
+
+@mixin body-medium-text {
+  @include basic-text;
+  font-size: 14px;
+  letter-spacing: -0.308px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+// COLORS
+
+$blackColor: #2e3247;
+$grayColor: #c0c4cf;
+$darkGrayColor: #9393a3;
+$lightGrayColor: #f9f9fa;
+
+.container {
+  @include caption-medium-text();
+}
+
+.suggestionsContainer {
+  z-index: 100;
+}
+
+.suggestionsList {
+  background-color: white;
+  padding: 0px;
+  z-index: 100;
+}
+
+.suggestion {
+  list-style-type: none;
+  padding: 4px;
+  z-index: 100;
+}
